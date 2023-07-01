@@ -14,7 +14,6 @@ function validateForm() {
   var weightValue = weightInput.value.trim();
   var emailValue = emailInput.value.trim();
 
-  // Resetting error messages
   nameError.textContent = "";
   ageError.textContent = "";
   weightError.textContent = "";
@@ -65,7 +64,6 @@ function validateForm() {
     return false;
   }
 
-  // If all validations pass, you can submit the form
   return true;
 }
 function uploadFile() {
@@ -74,15 +72,15 @@ function uploadFile() {
   var pdfFileError = document.getElementById("pdfFileError");
 
   if (fileName) {
-    var allowedExtensions = /(\.pdf)$/i; // Regular expression to allow only PDF files
+    var allowedExtensions = /(\.pdf)$/i;
     if (!allowedExtensions.exec(fileName)) {
       pdfFileError.textContent = "Please select a PDF file";
-      fileInput.value = ""; // Reset the file input value
+      fileInput.value = "";
     } else {
-      pdfFileError.textContent = ""; // Clear the error message
+      pdfFileError.textContent = "";
       var file = fileInput.files[0];
       var fileURL = URL.createObjectURL(file);
-      window.open(fileURL, "_blank"); // Open the PDF file in a new tab
+      window.open(fileURL, "_blank");
     }
   }
 }
