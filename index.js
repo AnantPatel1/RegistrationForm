@@ -3,21 +3,25 @@ function validateForm() {
   var ageInput = document.getElementById("age");
   var weightInput = document.getElementById("weight");
   var emailInput = document.getElementById("email");
+  var fileInput = document.getElementById("pdfFile");
 
   var nameError = document.getElementById("nameError");
   var ageError = document.getElementById("ageError");
   var weightError = document.getElementById("weightError");
   var emailError = document.getElementById("emailError");
+  var pdfFileError = document.getElementById("pdfFileError");
 
   var nameValue = nameInput.value.trim();
   var ageValue = ageInput.value.trim();
   var weightValue = weightInput.value.trim();
   var emailValue = emailInput.value.trim();
+  var fileName = fileInput.value;
 
   nameError.textContent = "";
   ageError.textContent = "";
   weightError.textContent = "";
   emailError.textContent = "";
+  pdfFileError.textContent = "";
 
   if (nameValue.length < 3) {
     nameError.textContent = "Name should be at least 3 characters long";
@@ -64,9 +68,17 @@ function validateForm() {
     return false;
   }
 
+  if (!fileName) {
+    pdfFileError.textContent = "Please select a PDF file";
+    fileInput.value = "";
+    fileInput.focus();
+    return false;
+  }
+
   return true;
 }
 function uploadFile() {
+  console.log("Anant");
   var fileInput = document.getElementById("pdfFile");
   var fileName = fileInput.value;
   var pdfFileError = document.getElementById("pdfFileError");
@@ -75,6 +87,7 @@ function uploadFile() {
     var allowedExtensions = /(\.pdf)$/i;
     if (!allowedExtensions.exec(fileName)) {
       pdfFileError.textContent = "Please select a PDF file";
+      console.log(pdfFileError.textContent);
       fileInput.value = "";
     } else {
       pdfFileError.textContent = "";
