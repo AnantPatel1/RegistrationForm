@@ -24,7 +24,7 @@
       </div>
       <div class="login-box">
         <h2>Form</h2>
-        <form onsubmit="return validateForm()">
+        <form>
           <div class="user-box">
             <input type="text" id="name" name="name" required />
             <label>Name</label>
@@ -59,6 +59,18 @@
             <label>Email</label>
             <p id="emailError" class="error-message"></p>
           </div>
+
+          <div class="user-box">
+            <input type="file" id="pdfFile" name="pdfFile" accept=".pdf" />
+            <label for="pdfFile">Upload PDF</label>
+            <p id="pdfFileError" class="error-message"></p>
+          </div>
+
+          <div href="#" id="uploadButton" onclick="uploadFile()">
+            <span class="ri-upload-line"></span>
+            <span>ReviewPDF</span>
+          </div>
+
           <a href="#" onclick="return validateForm()">
             <span></span>
             <span></span>

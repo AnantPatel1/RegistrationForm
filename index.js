@@ -68,3 +68,21 @@ function validateForm() {
   // If all validations pass, you can submit the form
   return true;
 }
+function uploadFile() {
+  var fileInput = document.getElementById("pdfFile");
+  var fileName = fileInput.value;
+  var pdfFileError = document.getElementById("pdfFileError");
+
+  if (fileName) {
+    var allowedExtensions = /(\.pdf)$/i; // Regular expression to allow only PDF files
+    if (!allowedExtensions.exec(fileName)) {
+      pdfFileError.textContent = "Please select a PDF file";
+      fileInput.value = ""; // Reset the file input value
+    } else {
+      pdfFileError.textContent = ""; // Clear the error message
+      var file = fileInput.files[0];
+      var fileURL = URL.createObjectURL(file);
+      window.open(fileURL, "_blank"); // Open the PDF file in a new tab
+    }
+  }
+}
