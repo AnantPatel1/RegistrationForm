@@ -5,8 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Registration Form</title>
-    <script src="index.js"></script>
-
+    
     <link
       href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css"
       rel="stylesheet"
@@ -24,7 +23,7 @@
       </div>
       <div class="login-box">
         <h2>Form</h2>
-        <form>
+        <form action="connect.php" method="POST" enctype="multipart/form-data">
           <div class="user-box">
             <input type="text" id="name" name="name" required />
             <label>Name</label>
@@ -60,8 +59,8 @@
             <p id="emailError" class="error-message"></p>
           </div>
 
-          <div class="user-box">
-            <input type="file" id="pdfFile" name="pdfFile" accept=".pdf" />
+           <div class="user-box">
+            <input type="file" id="pdfFile" name="pdf_file" accept=".pdf" />
             <label for="pdfFile">Upload PDF</label>
             <p id="pdfFileError" class="error-message"></p>
           </div>
@@ -69,9 +68,9 @@
           <div href="#" id="uploadButton" onclick="return uploadFile()">
             <span class="ri-upload-line"></span>
             <span>ReviewPDF</span>
-          </div>
+          </div> 
 
-          <button type="submit" href="#" onclick="return validateForm()">
+          <button type="submit" onclick="return validateForm()">
             <span></span>
             <span></span>
             <span></span>
@@ -81,5 +80,7 @@
         </form>
       </div>
     </div>
+    <script src="index.js"></script>
+
   </body>
 </html>
